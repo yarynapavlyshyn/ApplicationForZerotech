@@ -41,7 +41,6 @@ public class Application_FindingWorkingDays {
             if (LDto.getDayOfWeek() != DayOfWeek.SATURDAY
                     & LDto.getDayOfWeek() != DayOfWeek.SUNDAY)
                 numberOfWorkingDaysBetween += 1;
-            LDto = LDto.minusDays(1);
         }
         System.out.println(LDto);
 
