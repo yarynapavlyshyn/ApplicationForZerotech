@@ -33,20 +33,20 @@ public class Application_FindingWorkingDays {
                 numberOfWorkingDaysBetween += 1;
             LDfrom = LDfrom.plusDays(1);
         }
-        System.out.println(LDfrom);
 
-        // We are moving back form date "to" to the last Monday adding work days
+        // We are moving back form date "to" to the last Sunday adding work days
         LocalDate LDto = LocalDate.parse(to.toString(), dTF);
-        while (LDto.getDayOfWeek() != DayOfWeek.MONDAY){
+        while (LDto.getDayOfWeek() != DayOfWeek.SUNDAY){
             if (LDto.getDayOfWeek() != DayOfWeek.SATURDAY
-                    & LDto.getDayOfWeek() != DayOfWeek.SUNDAY)
+                    & LDto.getDayOfWeek() != DayOfWeek.MONDAY)
                 numberOfWorkingDaysBetween += 1;
+            LDto = LDto.minusDays(1);
         }
-        System.out.println(LDto);
-
         // We just add the rounded number of 5/7 * number of days between
-        // the fist and the last Mondays in the range of dates
-        numberOfWorkingDaysBetween += (getNumberOfDaysBetween(LDfrom, LDto) * 5 / 7);
+        // the fist and the last Mondays in the range of dates.
+        // Counting the number of weeks in the founded period and multiply by 5
+        // while adding to numberOfWorkingDaysBetween variable.
+        numberOfWorkingDaysBetween += ((getNumberOfDaysBetween(LDfrom, LDto) + 1) * 5 / 7);
 
         return numberOfWorkingDaysBetween;
     }
