@@ -20,5 +20,7 @@ public class Main {
         System.out.println(WD.workDaysWithoutHolidays());
         Application_FindingWorkingDays WD2 = new Application_FindingWorkingDays("14/12/2017","20/12/2017");
         System.out.println(WD2.workDaysWithoutHolidays());
+        Application_FindingWorkingDays WD = new Application_FindingWorkingDays("15/01/2018", "21/01/2018");
+        System.out.println(WD.workDaysWithoutHolidays());
     }
 }
